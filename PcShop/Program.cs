@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using PcShop.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("PsqlConnection");
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<PcshopContext>(
+    options => options.UseNpgsql(connectionString)
+);
+
+
 
 var app = builder.Build();
 
