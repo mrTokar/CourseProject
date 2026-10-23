@@ -9,6 +9,8 @@ public partial class Product
 
     public int Model { get; set; }
 
+    public ProductStatus Status { get; set; }
+
     public decimal? Price { get; set; }
 
     public int? Location { get; set; }

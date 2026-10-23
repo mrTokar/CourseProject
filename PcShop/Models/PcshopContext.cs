@@ -32,10 +32,10 @@ public partial class PcshopContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
-            .HasPostgresEnum("order_status", new[] { "Собирается", "Собран", "В пути", "Приехал в пункт выдачи", "Завершен", "Отменен" })
-            .HasPostgresEnum("payment_type", new[] { "Онлайн оплата", "Наличными", "Картой при получении" })
-            .HasPostgresEnum("product_status", new[] { "free", "reserved", "paid", "sold", "written-off" })
-            .HasPostgresEnum("user_role", new[] { "client", "manager", "seller" });
+            .HasPostgresEnum<OrderStatus>(name: "order_status")
+            .HasPostgresEnum<PaymentType>(name: "payment_type")
+            .HasPostgresEnum<ProductStatus>(name: "product_status")
+            .HasPostgresEnum<UserRole>(name: "user_role");
 
         modelBuilder.Entity<Cart>(entity =>
         {
@@ -129,9 +129,13 @@ public partial class PcshopContext : DbContext
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("create_dt");
             entity.Property(e => e.Location).HasColumnName("location");
+            entity.Property(e => e.Status)
+                .HasColumnName("status")
+                .HasDefaultValue(OrderStatus.Collecting);
             entity.Property(e => e.Paid)
                 .HasDefaultValue(false)
                 .HasColumnName("paid");
+            entity.Property(e => e.Payment).HasColumnName("payment");
             entity.Property(e => e.PaymentInfo).HasColumnName("payment_info");
             entity.Property(e => e.TotalPrice)
                 .HasPrecision(12, 2)
@@ -161,6 +165,9 @@ public partial class PcshopContext : DbContext
                 .HasColumnName("id");
             entity.Property(e => e.Location).HasColumnName("location");
             entity.Property(e => e.Model).HasColumnName("model");
+            entity.Property(e => e.Status)
+                .HasColumnName("status")
+                .HasDefaultValue(ProductStatus.Free);
             entity.Property(e => e.Price)
                 .HasPrecision(12, 2)
                 .HasColumnName("price");
@@ -232,6 +239,9 @@ public partial class PcshopContext : DbContext
             entity.Property(e => e.Surname)
                 .HasMaxLength(30)
                 .HasColumnName("surname");
+            entity.Property(e => e.Status)
+                .HasColumnName("status")
+                .HasDefaultValue(UserRole.Client);
 
             entity.HasMany(d => d.IdLocations).WithMany(p => p.UserLogins)
                 .UsingEntity<Dictionary<string, object>>(

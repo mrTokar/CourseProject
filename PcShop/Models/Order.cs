@@ -9,11 +9,15 @@ public partial class Order
 
     public int? Location { get; set; }
 
+    public OrderStatus Status { get; set; }
+
     public decimal? TotalPrice { get; set; }
 
     public DateTime CreateDt { get; set; }
 
     public string? UserLogin { get; set; }
+
+    public PaymentType Payment { get; set; }
 
     public bool Paid { get; set; }
 

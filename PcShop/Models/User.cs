@@ -15,6 +15,8 @@ public partial class User
 
     public string? Patronymic { get; set; }
 
+    public UserRole Status { get; set; }
+
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
