@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<PcShop.Models.PcshopContext>(
+    options => options.UseNpgsql(
+        builder.Configuration.GetConnectionString(
+            "Server=localhost;Database=demo;Username=postgres;Password=student; Persist Security Info=True"
+        )
+    ) 
+);
 
 var app = builder.Build();
 
