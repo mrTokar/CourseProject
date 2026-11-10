@@ -1,0 +1,70 @@
+@page
+@model PcShop.Pages.OrderPages.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Order.Id" />
+            <div class="form-group">
+                <label asp-for="Order.Location" class="control-label"></label>
+                <input asp-for="Order.Location" class="form-control" />
+                <span asp-validation-for="Order.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Status" class="control-label"></label>
+                <input asp-for="Order.Status" class="form-control" />
+                <span asp-validation-for="Order.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.TotalPrice" class="control-label"></label>
+                <input asp-for="Order.TotalPrice" class="form-control" />
+                <span asp-validation-for="Order.TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.CreateDt" class="control-label"></label>
+                <input asp-for="Order.CreateDt" class="form-control" />
+                <span asp-validation-for="Order.CreateDt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.UserLogin" class="control-label"></label>
+                <input asp-for="Order.UserLogin" class="form-control" />
+                <span asp-validation-for="Order.UserLogin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Payment" class="control-label"></label>
+                <input asp-for="Order.Payment" class="form-control" />
+                <span asp-validation-for="Order.Payment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.Paid" class="control-label"></label>
+                <input asp-for="Order.Paid" class="form-check-input" />
+                <span asp-validation-for="Order.Paid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Order.PaymentInfo" class="control-label"></label>
+                <input asp-for="Order.PaymentInfo" class="form-control" />
+                <span asp-validation-for="Order.PaymentInfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

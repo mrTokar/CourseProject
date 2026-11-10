@@ -1,0 +1,96 @@
+@page
+@model PcShop.Pages.OrderPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].TotalPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].CreateDt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].UserLogin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Payment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Paid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].PaymentInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].LocationNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].UserLoginNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Products)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Order) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.TotalPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CreateDt)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.UserLogin)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Payment)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Paid)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.PaymentInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.LocationNavigation)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.UserLoginNavigation)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Products)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
