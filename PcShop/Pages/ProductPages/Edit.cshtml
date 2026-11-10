@@ -21,12 +21,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Product.Status" class="control-label"></label>
-                <input asp-for="Product.Status" class="form-control" />
+                <select asp-for="Product.Status" asp-items="Html.GetEnumSelectList<PcShop.Models.ProductStatus>()" class="form-control">
+                    <option value="">-- Select Status --</option>
+                </select>
                 <span asp-validation-for="Product.Status" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Product.Price" class="control-label"></label>
-                <input asp-for="Product.Price" class="form-control" />
+                <input asp-for="Product.Price" class="form-control" type="number" step="0.01" min="0" />
                 <span asp-validation-for="Product.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
