@@ -1,0 +1,84 @@
+@page
+@model PcShop.Pages.UserPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Patronymic)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Carts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].Orders)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].IdLocations)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User[0].IdModels)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.User) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Patronymic)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Carts)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Orders)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.IdLocations)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.IdModels)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-login="@item.Login">Edit</a> |
+                <a asp-page="./Details" asp-route-login="@item.Login">Details</a> |
+                <a asp-page="./Delete" asp-route-login="@item.Login">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

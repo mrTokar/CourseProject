@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PcShop.Models;
 
 public partial class User
 {
-    public string Login { get; set; } = null!;
+    [Key]
+    public string Login { get; set; } = null!;  
 
     public string Password { get; set; } = null!;
 
