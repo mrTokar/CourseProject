@@ -8,7 +8,7 @@ public partial class User
 {
     [Key]
     [Display(Name = "Электронная почта")]
-    [RegularExpression(@"^https?://[^\s/$.?#].[^\s]*\.(jpe?g|png|webp|gif|svg|avif)(\?.*)?$",
+    [RegularExpression(@"^[a-z0-9_-]+(\.[a-z0-9_-]+)*@[a-z]+\.(ru|com)$",
         ErrorMessage = "Неверный адрес почты")]
     public string Login { get; set; } = null!;
 

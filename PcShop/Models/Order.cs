@@ -32,7 +32,7 @@ public partial class Order
     [Required(ErrorMessage = "Обязтаельное поле для заполнения")]
     [Display(Name = "Почта пользователя")]
     [StringLength(256)]
-    [RegularExpression(@"^https?://[^\s/$.?#].[^\s]*\.(jpe?g|png|webp|gif|svg|avif)(\?.*)?$",
+    [RegularExpression(@"^[a-z0-9_-]+(\.[a-z0-9_-]+)*@[a-z]+\.(ru|com)$",
         ErrorMessage = "Неверный формат почты")]
     public string? UserLogin { get; set; }
 
