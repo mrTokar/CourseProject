@@ -36,7 +36,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="User.Status" class="control-label"></label>
-                <input asp-for="User.Status" class="form-control" />
+                <select asp-for="User.Status" asp-items="Html.GetEnumSelectList<PcShop.Models.UserRole>()" class="form-control">
+                    <option value="">-- Select Status --</option>
+                </select>
                 <span asp-validation-for="User.Status" class="text-danger"></span>
             </div>
         </form>

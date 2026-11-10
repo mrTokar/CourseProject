@@ -7,16 +7,31 @@ namespace PcShop.Models;
 public partial class User
 {
     [Key]
-    public string Login { get; set; } = null!;  
+    [Display(Name = "Электронная почта")]
+    [RegularExpression(@"^https?://[^\s/$.?#].[^\s]*\.(jpe?g|png|webp|gif|svg|avif)(\?.*)?$",
+        ErrorMessage = "Неверный адрес почты")]
+    public string Login { get; set; } = null!;
 
+    [Required(ErrorMessage = "Обязтаельное поле для заполнения")]
+    [Display(Name = "Пароль")]
+    [StringLength(50)]
     public string Password { get; set; } = null!;
 
+    [Required(ErrorMessage = "Обязтаельное поле для заполнения")]
+    [Display(Name = "Фамилия")]
+    [StringLength(30)]
     public string Surname { get; set; } = null!;
 
+    [Required(ErrorMessage = "Обязтаельное поле для заполнения")]
+    [Display(Name = "Имя")]
+    [StringLength(20)]
     public string Name { get; set; } = null!;
 
+    [Display(Name = "Отчество")]
+    [StringLength(30)]
     public string? Patronymic { get; set; }
 
+    [Required(ErrorMessage = "Обязтаельное поле для заполнения")]
     public UserRole Status { get; set; }
 
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
