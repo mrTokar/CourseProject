@@ -31,7 +31,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Location.Type" class="control-label"></label>
-                <input asp-for="Location.Type" class="form-control" />
+                <select asp-for="Location.Type" class="form-control">
+					<option value="">-- Select Type --</option>
+                    <option value="ПВЗ">ПВЗ</option>
+                    <option value="склад">Склад</option>
+					<option value="магазин">Магазин</option>
+                </select>
                 <span asp-validation-for="Location.Type" class="text-danger"></span>
             </div>
             <div class="form-group">
