@@ -144,7 +144,7 @@ public partial class PcshopContext : DbContext
                 .HasMaxLength(256)
                 .HasColumnName("user_login");
 
-            entity.HasOne(d => d.LocationNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.LocationNavigation).WithMany()
                 .HasForeignKey(d => d.Location)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("fk_orders_location");
@@ -172,7 +172,7 @@ public partial class PcshopContext : DbContext
                 .HasPrecision(12, 2)
                 .HasColumnName("price");
 
-            entity.HasOne(d => d.LocationNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.LocationNavigation).WithMany()
                 .HasForeignKey(d => d.Location)
                 .HasConstraintName("fk_products_location");
 
@@ -243,7 +243,7 @@ public partial class PcshopContext : DbContext
                 .HasColumnName("status")
                 .HasDefaultValue(UserRole.Client);
 
-            entity.HasMany(d => d.IdLocations).WithMany(p => p.UserLogins)
+            entity.HasMany(d => d.IdLocations).WithMany()
                 .UsingEntity<Dictionary<string, object>>(
                     "SavedLocation",
                     r => r.HasOne<Location>().WithMany()

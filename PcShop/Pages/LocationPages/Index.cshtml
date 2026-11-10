@@ -28,15 +28,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Location[0].Schedules)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location[0].Orders)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location[0].Products)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location[0].UserLogins)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -57,15 +48,6 @@
             </td>
             <td>
                 @Html.DisplayFor(model => item.Schedules)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Orders)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Products)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.UserLogins)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |

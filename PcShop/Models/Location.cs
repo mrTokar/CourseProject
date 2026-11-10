@@ -17,9 +17,9 @@ public partial class Location
 
     public string? Schedules { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    //public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
-    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+    //public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 
-    public virtual ICollection<User> UserLogins { get; set; } = new List<User>();
+    //public virtual ICollection<User> UserLogins { get; set; } = new List<User>();
 }
