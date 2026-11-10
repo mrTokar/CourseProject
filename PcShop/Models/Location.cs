@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace PcShop.Models;
 
@@ -7,13 +8,26 @@ public partial class Location
 {
     public int Id { get; set; }
 
-    public string? City { get; set; }
+    [StringLength(25)]
+    [Required(ErrorMessage = "Обязтаельное поле для заполнения")]
+    [Display(Name = "Город")]
+    public string City { get; set; }
 
-    public string? Street { get; set; }
+    [StringLength(40)]
+    [Required(ErrorMessage = "Обязтаельное поле для заполнения")]
+    [Display(Name = "Улица")]
+    public string Street { get; set; }
 
-    public string? House { get; set; }
+    [StringLength(5)]
+    [Required(ErrorMessage = "Обязтаельное поле для заполнения")]
+    [Display(Name = "Дом")]
+    public string House { get; set; }
 
-    public string? Type { get; set; }
+    [RegularExpression(@"^(ПВЗ|магазин|склад)$", 
+        ErrorMessage = "Допустимы только ПВЗ, магазин, склад")]
+    [Required(ErrorMessage = "Обязтаельное поле для заполнения")]
+    [Display(Name = "Тип")]
+    public string Type { get; set; }
 
     public string? Schedules { get; set; }
 
