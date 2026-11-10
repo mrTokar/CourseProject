@@ -51,7 +51,7 @@ public partial class PcshopContext : DbContext
                 .HasPrecision(2)
                 .HasColumnName("count");
 
-            entity.HasOne(d => d.IdModelNavigation).WithMany(p => p.Carts)
+            entity.HasOne(d => d.IdModelNavigation).WithMany()
                 .HasForeignKey(d => d.IdModel)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_cart_model");
@@ -263,7 +263,7 @@ public partial class PcshopContext : DbContext
                         j.IndexerProperty<int>("IdLocation").HasColumnName("id_location");
                     });
 
-            entity.HasMany(d => d.IdModels).WithMany(p => p.UserLogins)
+            entity.HasMany(d => d.IdModels).WithMany()
                 .UsingEntity<Dictionary<string, object>>(
                     "Favorite",
                     r => r.HasOne<Model>().WithMany()

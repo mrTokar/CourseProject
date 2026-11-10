@@ -21,11 +21,8 @@ public partial class Model
 
     public decimal Count { get; set; }
 
-    public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
-
     public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 
     public virtual TemplateType TypeNavigation { get; set; } = null!;
 
-    public virtual ICollection<User> UserLogins { get; set; } = new List<User>();
 }
