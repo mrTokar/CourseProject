@@ -21,7 +21,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Order.Status" class="control-label"></label>
-                <input asp-for="Order.Status" class="form-control" />
+                <select asp-for="Order.Status" asp-items="Html.GetEnumSelectList<PcShop.Models.OrderStatus>()" class="form-control">
+                    <option value="">-- Select Status --</option>
+                </select>
                 <span asp-validation-for="Order.Status" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -41,7 +43,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Order.Payment" class="control-label"></label>
-                <input asp-for="Order.Payment" class="form-control" />
+                <select asp-for="Order.Payment" asp-items="Html.GetEnumSelectList<PcShop.Models.PaymentType>()" class="form-control">
+                    <option value="">-- Select Payment Type --</option>
+                </select>
                 <span asp-validation-for="Order.Payment" class="text-danger"></span>
             </div>
             <div class="form-group">
